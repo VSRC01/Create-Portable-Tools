@@ -25,17 +25,17 @@ import java.util.List;
 
 public class SourceBurnerBlockEntity extends BaseBurnerBlockEntity {
 
-    public static final int MAX_SOURCE_CAP = 10000;
-    public static final int SOURCE_COST = 2;
-    public static final double SOURCE_MULTIPLIER_1 = 1.5;
+    public static final int MAX_SOURCE_CAP = 100;
+    public static final int SOURCE_COST = 1;
+    public static final double SOURCE_MULTIPLIER_1 = 1;
     public static final double SOURCE_MULTIPLIER_2 = 2;
     public static final double MAX_HEAT = 300;
     public static final double UPGRADED_MAX_HEAT = 400;
-    public static final double HEATING_RATE = 2;
-    public static final double COOLING_RATE = 1;
+    public static final double HEATING_RATE = 20;
+    public static final double COOLING_RATE = 15;
     public double source_cost;
     public boolean upgraded;
-    public final SourceStorage source = new SourceStorage(1000,100,100);
+    public final SourceStorage source = new SourceStorage(100,100,100);
 
     public SourceBurnerBlockEntity(BlockPos pos, BlockState state) {
         super(BlockRegistry.SOURCE_BURNER_ENTITY.get(), pos, state);

@@ -1,0 +1,13 @@
+{
+  "item.createsourceandsteel.portable_drill": "Portable Drill",
+  "item.createsourceandsteel.portable_diamond_drill": "Portable Diamond Drill",
+  "item.createsourceandsteel.portable_chainsaw": "Portable Chainsaw",
+  "block.createsourceandsteel.source_burner": "Source Burner",
+  "creativetab.createsourceandsteel.create_ses": "Create Source and Steel",
+  "createsourceandsteel.burner.status.title": "Source Burner",
+  "createsourceandsteel.burner.status.heat": "Burner Heat Level",
+  "createsourceandsteel.burner.status.dots": "",
+  "createsourceandsteel.burner.energy.title": "Source amount",
+  "createsourceandsteel.burner.source.unit": "Source",
+  "createsourceandsteel.burner.per_tick": "Per Tick"
+}

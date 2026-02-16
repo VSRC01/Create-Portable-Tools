@@ -139,12 +139,12 @@ dependencies {
 
     implementation "com.hollingsworth.ars_nouveau:ars_nouveau-${minecraft_version}:${ars_version}"
 
-    implementation "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
+    /*implementation "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
     compileOnly "vazkii.patchouli:Patchouli:1.21.1-${patchouli_version}"
     compileOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}:api"
     compileOnly "mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}"
     implementation 'com.github.glitchfiend:TerraBlender-neoforge:1.21.1-4.1.0.8'
-    implementation "maven.modrinth:jade:${project.jade_version}"
+    implementation "maven.modrinth:jade:${project.jade_version}"*/
 
 
 }

@@ -4,17 +4,25 @@ import com.simibubi.create.content.equipment.armor.BacktankUtil;
 
 import com.simibubi.create.content.kinetics.saw.TreeCutter;
 import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.common.ItemAbilities;
+import net.neoforged.neoforge.common.ItemAbility;
+import org.jetbrains.annotations.NotNull;
 
+import java.util.Optional;
 import java.util.function.Supplier;
 
 public class PortableChainsawTool extends DiggerItem {
@@ -66,7 +74,7 @@ public class PortableChainsawTool extends DiggerItem {
 
 
     private int maxUses() {
-        return this.getTier().getUses(); // how many blocks the backtank can buffer
+        return this.getTier().getUses();
     }
 
     @Override
@@ -88,4 +96,32 @@ public class PortableChainsawTool extends DiggerItem {
     public boolean isValidRepairItem(ItemStack toRepair, ItemStack repair) {
         return this.repairIngredient.get().test(repair);
     }
+
+    @Override
+    public boolean canPerformAction(ItemStack stack, ItemAbility itemAbility) {
+        return ItemAbilities.DEFAULT_AXE_ACTIONS.contains(itemAbility) || super.canPerformAction(stack, itemAbility);
+    }
+
+    @Override
+    public InteractionResult useOn(UseOnContext context) {
+        Level level = context.getLevel();
+        BlockPos pos = context.getClickedPos();
+        BlockState state = level.getBlockState(pos);
+        Player player = context.getPlayer();
+
+        Optional<BlockState> strippedState = Optional.ofNullable(state.getToolModifiedState(context, ItemAbilities.AXE_STRIP, false));
+
+        if (strippedState.isPresent()) {
+            level.playSound(player, pos, SoundEvents.AXE_STRIP, SoundSource.BLOCKS, 1.0F, 1.0F);
+
+            if (!level.isClientSide) {
+                level.setBlock(pos, strippedState.get(), 11);
+            }
+
+            return InteractionResult.sidedSuccess(level.isClientSide);
+        }
+
+        return super.useOn(context);
+    }
+
 }
