@@ -6,6 +6,10 @@ import com.vsrc.createsourceandsteel.registry.BlockRegistry;
 import com.vsrc.createsourceandsteel.registry.ItemRegistry;
 import com.vsrc.createsourceandsteel.util.BoilerHeaterRegistry;
 import com.vsrc.createsourceandsteel.event.Events;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
