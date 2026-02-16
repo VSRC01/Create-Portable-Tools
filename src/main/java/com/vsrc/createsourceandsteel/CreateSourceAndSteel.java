@@ -2,6 +2,10 @@ package com.vsrc.createsourceandsteel;
 
 import com.vsrc.createsourceandsteel.items.ModCreativeModeTabs;
 import com.vsrc.createsourceandsteel.items.ModItems;
+import com.vsrc.createsourceandsteel.registry.BlockRegistry;
+import com.vsrc.createsourceandsteel.registry.ItemRegistry;
+import com.vsrc.createsourceandsteel.util.BoilerHeaterRegistry;
+import com.vsrc.createsourceandsteel.event.Events;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -32,8 +36,10 @@ public class CreateSourceAndSteel {
         ModCreativeModeTabs.register(modEventBus);
 
         ModItems.ITEMS.register(modEventBus);
-
-
+        BlockRegistry.BLOCKS.register(modEventBus);
+        BlockRegistry.BLOCK_ENTITY_TYPES.register( modEventBus);
+        ItemRegistry.ITEMS.register(modEventBus);
+        modEventBus.register(Events.class);
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
@@ -46,8 +52,8 @@ public class CreateSourceAndSteel {
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
-    private void commonSetup(FMLCommonSetupEvent event) {
-
+    private void commonSetup(final FMLCommonSetupEvent event) {
+        BoilerHeaterRegistry.registerBoilerHeaters();
     }
 
     // Add the example block item to the building blocks tab

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "result": {
+    "id": "createsourceandsteel:source_burner",
+    "count": 1
+  },
+  "pattern": [
+    "GSG",
+    " C ",
+    " S "
+  ],
+  "key": {
+    "G": {
+      "item": "create:golden_sheet"
+    },
+    "C": {
+      "item": "create:andesite_casing"
+    },
+    "S": {
+      "item": "ars_nouveau:source_gem"
+    }
+  }
+}

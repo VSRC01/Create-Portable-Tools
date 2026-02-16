@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "createsourceandsteel:item/portable_drill"
+    "layer0": "createsourceandsteel:item/chainsaw"
   }
 }

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "result": {
+    "id": "createsourceandsteel:portable_diamond_drill",
+    "count": 1
+  },
+  "pattern": [
+    " DD",
+    " PD",
+    "   "
+  ],
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "P": {
+      "item": "createsourceandsteel:portable_drill"
+    }
+  }
+}

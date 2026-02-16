@@ -2,6 +2,7 @@ package com.vsrc.createsourceandsteel.tools;
 
 import com.simibubi.create.content.equipment.armor.BacktankUtil;
 
+import com.simibubi.create.content.kinetics.saw.TreeCutter;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.LivingEntity;
@@ -10,18 +11,19 @@ import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class PortableDrillTool extends DiggerItem {
+public class PortableChainsawTool extends DiggerItem {
 
-    public PortableDrillTool(Tier tier, Properties properties) {
-        super(tier, BlockTags.MINEABLE_WITH_PICKAXE, properties);
+    public PortableChainsawTool(Tier tier, Properties properties) {
+        super(tier, BlockTags.MINEABLE_WITH_AXE, properties);
     }
 
 
     @Override
     public float getDestroySpeed(ItemStack stack, BlockState state) {
-        if (state.is(BlockTags.MINEABLE_WITH_PICKAXE) || state.is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+        if (state.is(BlockTags.MINEABLE_WITH_AXE) || state.is(BlockTags.MINEABLE_WITH_HOE)) {
             return this.getTier().getSpeed();
         }
 
@@ -31,16 +33,23 @@ public class PortableDrillTool extends DiggerItem {
 
     @Override
     public boolean isCorrectToolForDrops(ItemStack stack, BlockState state) {
-        return state.is(BlockTags.MINEABLE_WITH_PICKAXE) || state.is(BlockTags.MINEABLE_WITH_SHOVEL);
+        return state.is(BlockTags.MINEABLE_WITH_AXE) || state.is(BlockTags.MINEABLE_WITH_HOE);
     }
 
     @Override
     public boolean mineBlock(ItemStack stack, Level level, BlockState state, BlockPos pos, LivingEntity entity) {
-
         if (!level.isClientSide && entity instanceof Player player) {
-
             if (!BacktankUtil.canAbsorbDamage(player, maxUses())) {
                 stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(player.getUsedItemHand()));
+            }
+
+            if (TreeCutter.isLog(state)) {
+                TreeCutter.Tree tree = TreeCutter.findTree(level, pos, state);
+                if (tree != TreeCutter.NO_TREE) {
+                    tree.destroyBlocks(level, stack, null, (blockPos, dropStack) ->
+                            Block.popResource(level, blockPos, dropStack));
+                }
+
             }
 
             return true;
@@ -48,6 +57,7 @@ public class PortableDrillTool extends DiggerItem {
 
         return false;
     }
+
 
     private int maxUses() {
         return this.getTier().getUses(); // how many blocks the backtank can buffer
