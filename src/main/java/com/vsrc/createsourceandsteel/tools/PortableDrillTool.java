@@ -56,7 +56,7 @@ public class PortableDrillTool extends DiggerItem {
     }
 
     private int maxUses() {
-        return this.getTier().getUses(); // how many blocks the backtank can buffer
+        return this.getTier().getUses() ;
     }
 
     @Override

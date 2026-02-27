@@ -24,6 +24,7 @@ public class ModItems {
             .attributes(PickaxeItem.createAttributes(Tiers.DIAMOND, 3F, -2F)),
             () -> Ingredient.of(Items.DIAMOND)
     ));
+
     public static final DeferredItem<PortableChainsawTool> PORTABLE_CHAINSAW = ITEMS.register("portable_chainsaw", () -> new PortableChainsawTool(Tiers.DIAMOND, new Item.Properties()
             .attributes(AxeItem.createAttributes(Tiers.DIAMOND, 6F, -1F)),
             () -> Ingredient.of(Items.IRON_INGOT)

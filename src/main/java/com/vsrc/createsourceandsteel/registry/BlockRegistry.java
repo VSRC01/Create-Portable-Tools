@@ -21,8 +21,6 @@ public class BlockRegistry {
             BLOCKS.registerBlock("source_burner", SourceBurnerBlock::new, Blocks.IRON_BLOCK.properties());
 
     public static final Supplier<BlockEntityType<SourceBurnerBlockEntity>> SOURCE_BURNER_ENTITY =
-            BLOCK_ENTITY_TYPES.register("source_burner", () -> Builder.of(SourceBurnerBlockEntity::new, SOURCE_BURNER.get()).build(null)
-            );
-
+            BLOCK_ENTITY_TYPES.register("source_burner", () -> Builder.of(SourceBurnerBlockEntity::new, SOURCE_BURNER.get()).build(null));
 
 }
