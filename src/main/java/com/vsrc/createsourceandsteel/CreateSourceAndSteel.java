@@ -4,12 +4,15 @@ import com.vsrc.createsourceandsteel.items.ModCreativeModeTabs;
 import com.vsrc.createsourceandsteel.items.ModItems;
 import com.vsrc.createsourceandsteel.registry.BlockRegistry;
 import com.vsrc.createsourceandsteel.registry.ItemRegistry;
+import com.vsrc.createsourceandsteel.tools.PortableDrillTool;
 import com.vsrc.createsourceandsteel.util.BoilerHeaterRegistry;
 import com.vsrc.createsourceandsteel.event.Events;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
+import com.simibubi.create.content.equipment.armor.BacktankUtil;
 
+import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
@@ -18,7 +21,11 @@ import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
+
+import net.minecraft.world.entity.player.Player;
+
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(CreateSourceAndSteel.MODID)
@@ -65,5 +72,30 @@ public class CreateSourceAndSteel {
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
 
+    }
+
+    @SubscribeEvent
+    public void onBreakSpeed(PlayerEvent.BreakSpeed event) {
+        ItemStack stack = event.getEntity().getMainHandItem();
+
+        
+        if (stack.getItem() instanceof PortableDrillTool drill) {
+            Player player = event.getEntity();
+            
+            var backtanks = BacktankUtil.getAllWithAir(player);
+            
+            if (!backtanks.isEmpty()) {
+                ItemStack backtank = backtanks.get(0);
+                float air = (float) BacktankUtil.getAir(backtank);
+                float maxAir = (float) BacktankUtil.maxAir(backtank);
+                
+
+                float efficiency = 0.4F + (3.6F * (air / maxAir));
+                
+                event.setNewSpeed(event.getOriginalSpeed() * efficiency);
+            } else {
+                event.setNewSpeed(event.getOriginalSpeed() * 0.25F);
+            }
+        }
     }
 }
