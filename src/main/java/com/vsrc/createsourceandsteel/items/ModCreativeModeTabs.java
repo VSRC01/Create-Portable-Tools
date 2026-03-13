@@ -1,15 +1,11 @@
 package com.vsrc.createsourceandsteel.items;
 
-import com.hollingsworth.arsnouveau.common.block.ModBlock;
 import com.vsrc.createsourceandsteel.CreateSourceAndSteel;
-import com.vsrc.createsourceandsteel.blocks.SourceBurnerBlock;
 import com.vsrc.createsourceandsteel.registry.BlockRegistry;
-import com.vsrc.createsourceandsteel.util.ModTags;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -24,6 +20,7 @@ public class ModCreativeModeTabs {
             .displayItems((itemDisplayParameters, output) -> {
                 output.accept(ModItems.PORTABLE_DRILL.get());
                 output.accept(ModItems.PORTABLE_DIAMOND_DRILL.get());
+                output.accept(ModItems.PORTABLE_NETHERITE_DRILL.get());
                 output.accept(ModItems.PORTABLE_CHAINSAW.get());
                 output.accept(BlockRegistry.SOURCE_BURNER.get());
             })

@@ -28,7 +28,7 @@ public class PortableDrillTool extends DiggerItem {
     @Override
     public float getDestroySpeed(ItemStack stack, BlockState state) {
         if (state.is(BlockTags.MINEABLE_WITH_PICKAXE) || state.is(BlockTags.MINEABLE_WITH_SHOVEL)) {
-            return this.getTier().getSpeed();
+            return this.getTier().getSpeed() * 2 ;
         }
 
         return 1.0F;
@@ -56,7 +56,7 @@ public class PortableDrillTool extends DiggerItem {
     }
 
     private int maxUses() {
-        return this.getTier().getUses() ;
+        return this.getTier().getUses() * 10;
     }
 
     @Override

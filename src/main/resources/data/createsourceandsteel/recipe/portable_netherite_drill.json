@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:smithing_transform",
+  "group": "misc",
+  "base": {
+    "item": "createsourceandsteel:portable_diamond_drill"
+  },
+  "addition": {
+    "item": "minecraft:netherite_ingot"
+  },
+  "template": {
+    "item": "minecraft:netherite_upgrade_smithing_template"
+  },
+  "result": {
+    "id": "createsourceandsteel:portable_netherite_drill",
+    "count": 1
+  }
+}

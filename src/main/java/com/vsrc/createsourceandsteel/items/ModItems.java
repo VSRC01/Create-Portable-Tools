@@ -25,6 +25,11 @@ public class ModItems {
             () -> Ingredient.of(Items.DIAMOND)
     ));
 
+        public static final DeferredItem<PortableDrillTool> PORTABLE_NETHERITE_DRILL = ITEMS.register("portable_netherite_drill", () -> new PortableDrillTool(Tiers.NETHERITE, new Item.Properties()
+            .attributes(PickaxeItem.createAttributes(Tiers.NETHERITE, 4F, -2F)),
+            () -> Ingredient.of(Items.NETHERITE_INGOT)
+    ));
+
     public static final DeferredItem<PortableChainsawTool> PORTABLE_CHAINSAW = ITEMS.register("portable_chainsaw", () -> new PortableChainsawTool(Tiers.DIAMOND, new Item.Properties()
             .attributes(AxeItem.createAttributes(Tiers.DIAMOND, 6F, -1F)),
             () -> Ingredient.of(Items.IRON_INGOT)

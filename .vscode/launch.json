@@ -1,0 +1,93 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "Client",
+      "presentation": {
+        "group": "Mod Development - Create-Portable-Tools",
+        "order": 0
+      },
+      "projectName": "Create-Portable-Tools",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@C:\\Users\\Victo\\OneDrive\\Documentos\\Create-Portable-Tools\\build\\moddev\\clientRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@C:\\Users\\Victo\\OneDrive\\Documentos\\Create-Portable-Tools\\build\\moddev\\clientRunVmArgs.txt",
+        "-Dfml.modFolders\u003dcreatesourceandsteel%%C:\\Users\\Victo\\OneDrive\\Documentos\\Create-Portable-Tools\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\run",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "Data",
+      "presentation": {
+        "group": "Mod Development - Create-Portable-Tools",
+        "order": 1
+      },
+      "projectName": "Create-Portable-Tools",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@C:\\Users\\Victo\\OneDrive\\Documentos\\Create-Portable-Tools\\build\\moddev\\dataRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@C:\\Users\\Victo\\OneDrive\\Documentos\\Create-Portable-Tools\\build\\moddev\\dataRunVmArgs.txt",
+        "-Dfml.modFolders\u003dcreatesourceandsteel%%C:\\Users\\Victo\\OneDrive\\Documentos\\Create-Portable-Tools\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\run",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "GameTestServer",
+      "presentation": {
+        "group": "Mod Development - Create-Portable-Tools",
+        "order": 2
+      },
+      "projectName": "Create-Portable-Tools",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@C:\\Users\\Victo\\OneDrive\\Documentos\\Create-Portable-Tools\\build\\moddev\\gameTestServerRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@C:\\Users\\Victo\\OneDrive\\Documentos\\Create-Portable-Tools\\build\\moddev\\gameTestServerRunVmArgs.txt",
+        "-Dfml.modFolders\u003dcreatesourceandsteel%%C:\\Users\\Victo\\OneDrive\\Documentos\\Create-Portable-Tools\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\run",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "Server",
+      "presentation": {
+        "group": "Mod Development - Create-Portable-Tools",
+        "order": 3
+      },
+      "projectName": "Create-Portable-Tools",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@C:\\Users\\Victo\\OneDrive\\Documentos\\Create-Portable-Tools\\build\\moddev\\serverRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@C:\\Users\\Victo\\OneDrive\\Documentos\\Create-Portable-Tools\\build\\moddev\\serverRunVmArgs.txt",
+        "-Dfml.modFolders\u003dcreatesourceandsteel%%C:\\Users\\Victo\\OneDrive\\Documentos\\Create-Portable-Tools\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\run",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    }
+  ]
+}
